@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dolphin Restaurant – Gamharia, Jamshedpur</title>
+<meta name="description" content="Best family restaurant in Gamharia, Jamshedpur. Affordable meals ₹200–₹400, perfect for families & events. Call now to book your table!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --maroon: #7B1C1C;
+  --deep-red: #A02020;
+  --gold: #C9902B;
+  --gold-light: #E8B84B;
+  --cream: #FAF6EF;
+  --warm-white: #FFFDF9;
+  --charcoal: #1E1A17;
+  --text-muted: #6B5E52;
+  --border: rgba(123,28,28,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%; height: 70px;
+  background: rgba(255,253,249,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 900;
+  color: var(--maroon);
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; font-size: 0.88rem; font-weight: 500;
+  color: var(--charcoal); letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--deep-red); }
+
+.nav-cta {
+  background: var(--maroon); color: #fff !important;
+  padding: 0.5rem 1.2rem; border-radius: 50px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--deep-red) !important; color: #fff !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 2px; background: var(--charcoal); transition: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0808 0%, #3d1010 40%, #5c1a1a 100%);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 100px 5% 60px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.18;
+}
+
+/* Decorative circles */
+.hero::after {
+  content: '';
+  position: absolute; right: -10%; top: 50%; transform: translateY(-50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,144,43,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(201,144,43,0.2); border: 1px solid rgba(201,144,43,0.4);
+  padding: 0.35rem 1rem; border-radius: 50px;
+  color: var(--gold-light); font-size: 0.8rem; font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900; line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+
+.hero p {
+  color: rgba(255,255,255,0.75); font-size: 1.05rem; line-height: 1.7;
+  margin-bottom: 2rem; max-width: 440px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-ctas {
+  display: flex; flex-wrap: wrap; gap: 0.8rem;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.6rem; border-radius: 50px;
+  font-weight: 600; font-size: 0.92rem;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--gold); color: var(--charcoal);
+  box-shadow: 0 8px 24px rgba(201,144,43,0.4);
+}
+.btn-primary:hover { background: var(--gold-light); box-shadow: 0 12px 30px rgba(201,144,43,0.5); }
+
+.btn-outline {
+  background: rgba(255,255,255,0.1); color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.2); }
+
+.btn-red {
+  background: var(--maroon); color: #fff;
+  box-shadow: 0 8px 24px rgba(123,28,28,0.4);
+}
+.btn-red:hover { background: var(--deep-red); }
+
+/* Hero image card */
+.hero-image-wrap {
+  position: relative;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+.hero-image-card {
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  aspect-ratio: 4/5;
+  background: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80') center/cover;
+}
+
+.hero-stat-card {
+  position: absolute; bottom: -20px; left: -30px;
+  background: #fff; border-radius: 16px;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-stat-card .stars { color: var(--gold); font-size: 1rem; }
+.hero-stat-card .stat-text { font-size: 0.78rem; color: var(--text-muted); }
+.hero-stat-card .stat-number { font-size: 1.3rem; font-weight: 700; color: var(--maroon); }
+
+.hero-price-badge {
+  position: absolute; top: 20px; right: -15px;
+  background: var(--maroon); color: #fff;
+  border-radius: 12px; padding: 0.7rem 1rem;
+  text-align: center; box-shadow: 0 10px 30px rgba(123,28,28,0.4);
+}
+.hero-price-badge .price { font-size: 1.4rem; font-weight: 700; }
+.hero-price-badge .price-label { font-size: 0.7rem; opacity: 0.8; }
+
+/* ── SECTIONS COMMON ── */
+section { padding: 80px 5%; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900; line-height: 1.2;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+.section-sub {
+  color: var(--text-muted); font-size: 1rem; line-height: 1.7; max-width: 540px;
+}
+
+/* ── TRUST BAND ── */
+.trust-band {
+  background: var(--maroon); padding: 28px 5%;
+  display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 0.8rem; color: #fff;
+}
+.trust-icon { font-size: 1.5rem; }
+.trust-text-top { font-size: 0.72rem; opacity: 0.7; letter-spacing: 1px; text-transform: uppercase; }
+.trust-text-bot { font-size: 1.05rem; font-weight: 700; }
+
+/* ── MENU ── */
+.menu-section { background: var(--cream); }
+
+.menu-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+
+.dish-card {
+  background: #fff; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.dish-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+.dish-img {
+  height: 190px; background-size: cover; background-position: center;
+  position: relative;
+}
+.dish-tag {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--maroon); color: #fff;
+  font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+}
+.dish-body { padding: 1.2rem; }
+.dish-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+.dish-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.8rem; }
+.dish-price { color: var(--maroon); font-weight: 700; font-size: 1rem; }
+
+/* ── REVIEWS ── */
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.review-card {
+  background: #fff; border-radius: 20px; padding: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--gold);
+}
+.review-stars { color: var(--gold); margin-bottom: 0.8rem; font-size: 1.1rem; }
+.review-text { font-size: 0.93rem; line-height: 1.7; color: var(--charcoal); margin-bottom: 1rem; font-style: italic; }
+.review-author { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); }
+
+/* ── WHY CHOOSE ── */
+.why-section { background: var(--charcoal); }
+.why-section .section-title { color: #fff; }
+.why-section .section-sub { color: rgba(255,255,255,0.6); }
+.why-section .section-label { color: var(--gold-light); }
+
+.why-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.why-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 2rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+.why-card:hover { background: rgba(201,144,43,0.1); border-color: rgba(201,144,43,0.3); }
+.why-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.why-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+.why-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+/* ── EVENTS ── */
+.events-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.events-image {
+  border-radius: 24px; overflow: hidden;
+  height: 450px;
+  background: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80') center/cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.event-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+.event-tag {
+  background: rgba(123,28,28,0.08); color: var(--maroon);
+  border: 1px solid rgba(123,28,28,0.2);
+  padding: 0.4rem 0.9rem; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 500;
+}
+
+/* ── BOOKING FORM ── */
+.booking-section { background: var(--maroon); }
+.booking-section .section-title { color: #fff; }
+.booking-section .section-label { color: var(--gold-light); }
+.booking-section .section-sub { color: rgba(255,255,255,0.7); }
+
+.booking-inner {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
+}
+.booking-info-list { list-style: none; margin-top: 2rem; }
+.booking-info-list li {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.85); font-size: 0.95rem;
+}
+.booking-info-list li .icon { font-size: 1.3rem; }
+
+.booking-form {
+  background: #fff; border-radius: 24px; padding: 2.5rem;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; margin-bottom: 1.8rem;
+  color: var(--charcoal);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.5px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem; border: 1.5px solid #E8E0D8;
+  border-radius: 12px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; color: var(--charcoal);
+  outline: none; transition: border-color 0.2s;
+  background: #FDFAF7;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--maroon); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-submit {
+  width: 100%; margin-top: 1.2rem;
+  background: var(--maroon); color: #fff;
+  padding: 1rem; border-radius: 50px; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.3px;
+}
+.form-submit:hover { background: var(--deep-red); transform: translateY(-2px); }
+
+/* ── MAP ── */
+.map-section { padding: 0; }
+.map-container iframe { width: 100%; height: 380px; border: none; display: block; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal); color: rgba(255,255,255,0.7);
+  padding: 50px 5% 30px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+}
+.footer-brand .logo { font-size: 1.6rem; color: #fff; display: block; margin-bottom: 0.8rem; }
+.footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+.footer-col h4 {
+  color: #fff; font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; font-size: 0.85rem; }
+.footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--gold-light); }
+.footer-bottom {
+  max-width: 1200px; margin: 3rem auto 0;
+  padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem;
+}
+
+/* ── STICKY CTA (MOBILE) ── */
+.sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: #fff; border-top: 1px solid var(--border);
+  padding: 0.8rem 1.2rem;
+  gap: 0.6rem;
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.12);
+}
+.sticky-cta a {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 0.4rem; padding: 0.7rem 0.5rem; border-radius: 12px;
+  font-size: 0.82rem; font-weight: 700; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.sticky-cta a:hover { opacity: 0.85; }
+.sticky-cta .s-call { background: var(--maroon); color: #fff; }
+.sticky-cta .s-wa { background: #25D366; color: #fff; }
+.sticky-cta .s-book { background: var(--gold); color: var(--charcoal); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-image-wrap { display: none; }
+  .hero { min-height: auto; padding: 110px 5% 70px; text-align: center; }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .hero-ctas { justify-content: center; }
+
+  .trust-band { gap: 2rem; padding: 20px 5%; }
+
+  .events-inner { grid-template-columns: 1fr; }
+  .events-image { height: 260px; }
+
+  .booking-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .sticky-cta { display: flex; }
+  body { padding-bottom: 75px; }
+
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* Decorative gold line */
+.gold-line {
+  display: inline-block; width: 48px; height: 3px;
+  background: var(--gold); border-radius: 2px; margin-bottom: 1rem;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Dolphin<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#booking">Book Table</a></li>
+    <li><a href="tel:+919973808000" class="nav-cta">📞 Call Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">⭐ 4.0 Rating · 350+ Happy Customers</div>
+      <h1>Delicious Food,<br><em>Homely Service</em><br>in Gamharia</h1>
+      <p>Affordable meals perfect for family & friends. From sizzling tandoori to rich biryanis — every plate tells a story of love and tradition.</p>
+      <div class="hero-ctas">
+        <a href="tel:+919973808000" class="btn btn-primary">📞 Call Now</a>
+        <a href="#booking" class="btn btn-red">📝 Book a Table</a>
+        <a href="https://maps.google.com/?q=Dolphin+Restaurant+Gamharia+Jamshedpur" target="_blank" class="btn btn-outline">📍 Get Directions</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-image-card"></div>
+      <div class="hero-stat-card">
+        <div>
+          <div class="stat-number">4.0</div>
+          <div class="stars">★★★★☆</div>
+          <div class="stat-text">350+ Reviews</div>
+        </div>
+      </div>
+      <div class="hero-price-badge">
+        <div class="price">₹200–</div>
+        <div class="price">400</div>
+        <div class="price-label">per person</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAND -->
+<div class="trust-band">
+  <div class="trust-item">
+    <span class="trust-icon">⭐</span>
+    <div>
+      <div class="trust-text-top">Rating</div>
+      <div class="trust-text-bot">4.0 / 5.0</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">👨‍👩‍👧</span>
+    <div>
+      <div class="trust-text-top">Happy Families</div>
+      <div class="trust-text-bot">350+ Reviews</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">🕙</span>
+    <div>
+      <div class="trust-text-top">Open Daily</div>
+      <div class="trust-text-bot">Until 11:00 PM</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">💰</span>
+    <div>
+      <div class="trust-text-top">Starting at</div>
+      <div class="trust-text-bot">₹200 per person</div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="section-inner">
+    <div class="gold-line"></div>
+    <div class="section-label">Our Specialities</div>
+    <h2 class="section-title">Dishes You'll Love</h2>
+    <p class="section-sub">Fresh ingredients, traditional recipes, and flavours that keep our guests coming back again and again.</p>
+
+    <div class="menu-grid reveal">
+      <div class="dish-card">
+        <div class="dish-img" style="background-image:url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80')">
+          <span class="dish-tag">🔥 Best Seller</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">Butter Chicken Masala</div>
+          <div class="dish-desc">Tender chicken in a rich, velvety tomato-cream sauce with aromatic spices.</div>
+          <div class="dish-price">₹280 onwards</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background-image:url('https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80')">
+          <span class="dish-tag">⭐ Popular</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">Hyderabadi Chicken Biryani</div>
+          <div class="dish-desc">Slow-cooked aromatic basmati rice with succulent chicken and whole spices.</div>
+          <div class="dish-price">₹250 onwards</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background-image:url('https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80')">
+          <span class="dish-tag">🍗 Tandoor</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">Chicken Tandoori</div>
+          <div class="dish-desc">Marinated in spiced yogurt and char-grilled in a traditional clay oven.</div>
+          <div class="dish-price">₹300 onwards</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background-image:url('https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80')">
+          <span class="dish-tag">🌿 Veg</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">Paneer Tikka</div>
+          <div class="dish-desc">Cottage cheese marinated in spicy masala, grilled to perfection on skewers.</div>
+          <div class="dish-price">₹220 onwards</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background-image:url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80')">
+          <span class="dish-tag">🌿 Vegan</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">Veg Thali</div>
+          <div class="dish-desc">A wholesome spread — dal, sabzi, roti, rice, salad & papad. A full meal!</div>
+          <div class="dish-price">₹200 onwards</div>
+        </div>
+      </div>
+      <div class="dish-card" style="background:linear-gradient(135deg,var(--maroon),#3d1010);display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;">
+        <div>
+          <div style="font-size:2.5rem;margin-bottom:1rem;">🍽</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">View Full Menu</div>
+          <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:1.2rem;">30+ dishes available</div>
+          <a href="tel:+919973808000" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Call to Enquire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="gold-line"></div>
+    <div class="section-label">What People Say</div>
+    <h2 class="section-title">Loved by Locals</h2>
+    <p class="section-sub">Real experiences from our guests — because the best compliment is a full stomach and a big smile.</p>
+
+    <div class="reviews-grid reveal">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Tasty food with a great environment. The butter chicken is absolutely amazing and the staff is very welcoming. Will definitely visit again!"</p>
+        <div class="review-author">— Rahul M., Gamharia</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excellent food and homely service. We celebrated my son's birthday here — the arrangements were perfect and the biryani was outstanding."</p>
+        <div class="review-author">— Priya S., Jamshedpur</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">"Great value for money! The veg thali is wholesome and filling. Love the cozy family atmosphere. Highly recommend for a weekend outing."</p>
+        <div class="review-author">— Amit K., Jamshedpur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="gold-line"></div>
+    <div class="section-label">Why Dolphin</div>
+    <h2 class="section-title" style="color:#fff">Why Families Choose Us</h2>
+    <p class="section-sub">We're more than a restaurant — we're your neighbourhood dining destination.</p>
+
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <div class="why-title">Affordable Prices</div>
+        <div class="why-desc">Great meals starting from just ₹200 per person. Quality food doesn't have to break the bank.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">👨‍👩‍👧‍👦</div>
+        <div class="why-title">Family Friendly</div>
+        <div class="why-desc">A warm, comfortable space where families can relax, laugh, and enjoy a meal together.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Quick Service</div>
+        <div class="why-desc">We respect your time. Hot food delivered promptly, without compromising on quality.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <div class="why-title">Quality Ingredients</div>
+        <div class="why-desc">Fresh, locally sourced ingredients in every dish. Vegan options available too.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <div class="events-inner">
+      <div class="events-image reveal"></div>
+      <div class="reveal">
+        <div class="gold-line"></div>
+        <div class="section-label">Host With Us</div>
+        <h2 class="section-title">Celebrate Special Moments</h2>
+        <p class="section-sub">Make your celebrations unforgettable. We host intimate gatherings and special occasions with warmth and care.</p>
+        <div class="event-tags">
+          <span class="event-tag">🎂 Birthday Parties</span>
+          <span class="event-tag">👥 Group Dining</span>
+          <span class="event-tag">🎉 Small Gatherings</span>
+          <span class="event-tag">🏢 Corporate Lunches</span>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.8rem;">
+          We take care of the setup, menu, and service — you just bring the guests and good vibes. Customizable menus available for groups.
+        </p>
+        <a href="#booking" class="btn btn-red">Book Your Event Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="booking">
+  <div class="section-inner">
+    <div class="booking-inner">
+      <div>
+        <div class="gold-line" style="background:var(--gold-light)"></div>
+        <div class="section-label">Reservations</div>
+        <h2 class="section-title" style="color:#fff">Reserve Your Table</h2>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:2rem;">Book ahead and skip the wait. We'll have your table ready and waiting for you.</p>
+        <ul class="booking-info-list">
+          <li><span class="icon">📍</span> Gamharia, Jamshedpur, Jharkhand</li>
+          <li><span class="icon">📞</span> 099738 08000</li>
+          <li><span class="icon">🕙</span> Open daily until 11:00 PM</li>
+          <li><span class="icon">💰</span> ₹200–₹400 per person</li>
+          <li><span class="icon">🍽</span> Dine-in & Takeaway available</li>
+        </ul>
+        <div style="margin-top:2rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
+          <a href="tel:+919973808000" class="btn btn-primary">📞 Call to Book</a>
+          <a href="https://wa.me/919973808000" target="_blank" class="btn btn-outline">💬 WhatsApp Us</a>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div class="form-title">Make a Reservation</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 00000 00000">
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Time</label>
+            <input type="time">
+          </div>
+          <div class="form-group">
+            <label>Number of Guests</label>
+            <select>
+              <option>1–2 Guests</option>
+              <option>3–4 Guests</option>
+              <option>5–8 Guests</option>
+              <option>9+ Guests (Party)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Occasion</label>
+            <select>
+              <option>Regular Dining</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Special Requests</label>
+            <textarea placeholder="Any dietary requirements or special arrangements..."></textarea>
+          </div>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(event)">🍽 Reserve My Table</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14711.98!2d86.13!3d22.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQ3JzI0LjAiTiA4NsKwMDcnNDguMCJF!5e0!3m2!1sen!2sin!4v1699000000000!5m2!1sen!2sin"
+      width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Dolphin<span style="color:var(--gold)">.</span></span>
+      <p>Your favourite family restaurant in Gamharia, Jamshedpur. Serving delicious food with homely warmth since the beginning.</p>
+      <div style="margin-top:1.2rem;display:flex;gap:0.6rem;">
+        <a href="tel:+919973808000" class="btn btn-primary" style="font-size:0.8rem;padding:0.5rem 1rem;">📞 Call Us</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#events">Events & Parties</a></li>
+        <li><a href="#booking">Book a Table</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <ul>
+        <li><a href="#">Gamharia, Jamshedpur</a></li>
+        <li><a href="#">Jharkhand, India</a></li>
+        <li><a href="tel:+919973808000">099738 08000</a></li>
+        <li><a href="#">Open till 11 PM daily</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Dolphin Restaurant, Gamharia. All rights reserved.</span>
+    <span>Made with ❤️ for great food lovers</span>
+  </div>
+</footer>
+
+<!-- STICKY CTA (mobile) -->
+<div class="sticky-cta">
+  <a href="tel:+919973808000" class="s-call">📞 Call</a>
+  <a href="https://wa.me/919973808000" target="_blank" class="s-wa">💬 WhatsApp</a>
+  <a href="#booking" class="s-book">📝 Book Table</a>
+</div>
+
+<script>
+// Intersection Observer for reveal animations
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target;
+  btn.textContent = '✅ Reservation Sent! We\'ll call you shortly.';
+  btn.style.background = '#27ae60';
+  setTimeout(() => {
+    btn.textContent = '🍽 Reserve My Table';
+    btn.style.background = '';
+  }, 4000);
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
