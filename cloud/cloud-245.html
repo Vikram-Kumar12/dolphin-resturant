@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud-245 | Jamshedpur's Favorite Rooftop Hangout Spot</title>
+  <meta name="description" content="Cloud-245 – Rooftop dining, great vibes & modern cuisine in Gamharia, Jamshedpur. Book your table now. ₹200–₹400. Call 092796 88281." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Cloud-245",
+    "description": "Modern rooftop restaurant and hangout spot in Gamharia, Jamshedpur. Modern cuisine with a twist of classic flavors.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shridungri, Gamharia",
+      "addressLocality": "Jamshedpur",
+      "addressRegion": "Jharkhand",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919279688281",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "800"
+    },
+    "servesCuisine": ["Chinese", "Indian", "Mughlai", "Continental"],
+    "openingHours": "Mo-Su 11:00-22:30",
+    "priceRange": "₹₹"
+  }
+  </script>
+
+  <style>
+    /* ─── Variables ─── */
+    :root {
+      --black: #080810;
+      --black-2: #0D0D1A;
+      --dark: #111120;
+      --dark-2: #181828;
+      --card-bg: #13131F;
+      --neon-orange: #FF6B2B;
+      --neon-orange-glow: rgba(255, 107, 43, 0.35);
+      --neon-cyan: #00D4FF;
+      --neon-cyan-glow: rgba(0, 212, 255, 0.25);
+      --neon-purple: #A855F7;
+      --neon-purple-glow: rgba(168, 85, 247, 0.25);
+      --text-white: #F0F0FF;
+      --text-muted: rgba(200, 200, 230, 0.5);
+      --text-dim: rgba(200, 200, 230, 0.3);
+      --border: rgba(255,255,255,0.06);
+      --border-bright: rgba(255, 107, 43, 0.3);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-heading: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      cursor: none;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ─── Custom Cursor ─── */
+    #cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--neon-orange);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+      mix-blend-mode: screen;
+    }
+    #cursor-ring {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid rgba(255, 107, 43, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+    }
+    body:not(:hover) #cursor, body:not(:hover) #cursor-ring { opacity: 0; }
+    @media (hover: none) { #cursor, #cursor-ring, body { cursor: auto; } #cursor, #cursor-ring { display: none; } }
+
+    /* ─── Utility ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      padding: 5px 14px;
+      border: 1px solid rgba(255,107,43,0.3);
+      border-radius: 2px;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.03em;
+      line-height: 0.95;
+      color: var(--text-white);
+    }
+    .glow-text { text-shadow: 0 0 40px var(--neon-orange-glow), 0 0 80px rgba(255,107,43,0.15); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.08);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn-orange {
+      background: var(--neon-orange);
+      color: #fff;
+      box-shadow: 0 0 24px var(--neon-orange-glow), 0 4px 16px rgba(255,107,43,0.3);
+    }
+    .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(255,107,43,0.6), 0 8px 24px rgba(255,107,43,0.35); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-ghost:hover { border-color: var(--neon-orange); color: var(--neon-orange); transform: translateY(-2px); }
+    .btn-cyan {
+      background: transparent;
+      color: var(--neon-cyan);
+      border: 1px solid rgba(0,212,255,0.4);
+    }
+    .btn-cyan:hover { background: rgba(0,212,255,0.08); transform: translateY(-2px); box-shadow: 0 0 20px var(--neon-cyan-glow); }
+
+    /* ─── Reveal Animations ─── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-l { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-l.in { opacity: 1; transform: translateX(0); }
+    .reveal-r { opacity: 0; transform: translateX(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-r.in { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; } .d6 { transition-delay: 0.6s; }
+
+    /* ─── Noise Overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9997;
+    }
+
+    /* ─── Sticky Reserve Button ─── */
+    #sticky-reserve {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 990;
+      display: none;
+    }
+    #sticky-reserve a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--neon-orange);
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 0 30px var(--neon-orange-glow), 0 4px 20px rgba(255,107,43,0.4);
+      animation: orangePulse 2.5s infinite;
+    }
+    @keyframes orangePulse {
+      0%,100% { box-shadow: 0 0 30px var(--neon-orange-glow), 0 4px 20px rgba(255,107,43,0.4); }
+      50% { box-shadow: 0 0 50px rgba(255,107,43,0.7), 0 4px 30px rgba(255,107,43,0.6); }
+    }
+    @media (max-width: 768px) { #sticky-reserve { display: block; } }
+
+    /* ─── WhatsApp ─── */
+    #wa-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 990;
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s;
+    }
+    #wa-btn:hover { transform: scale(1.1); }
+    #wa-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+    /* ─── NAVBAR ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 22px 0;
+      transition: all 0.4s ease;
+    }
+    #nav.solid {
+      background: rgba(8, 8, 16, 0.92);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      letter-spacing: 0.06em;
+      color: var(--text-white);
+    }
+    .nav-logo span { color: var(--neon-orange); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--text-white); }
+    .nav-reserve {
+      background: var(--neon-orange) !important;
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 3px;
+    }
+    #nav-toggle { display: none; cursor: pointer; }
+    #nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-white);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      #nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(8,8,16,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        gap: 0;
+        border-top: 1px solid var(--border);
+        padding: 12px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 28px; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-reserve { margin: 8px 28px; border-radius: 3px; }
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85&auto=format') center/cover;
+      transform: scale(1.06);
+      transition: transform 10s ease;
+      filter: brightness(0.3) saturate(0.8);
+    }
+    #hero.loaded .hero-bg { transform: scale(1); }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(255,107,43,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(168,85,247,0.1) 0%, transparent 70%),
+        linear-gradient(to top, var(--black) 0%, rgba(8,8,16,0.4) 60%, transparent 100%);
+    }
+    /* Animated grid lines */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255,107,43,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,43,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 130px;
+      padding-bottom: 100px;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      animation: fadeSlideUp 0.9s ease 0.1s both;
+    }
+    .hero-eyebrow-line { flex: 0 0 40px; height: 1px; background: var(--neon-orange); }
+    .hero-eyebrow-text {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 9rem);
+      letter-spacing: 0.02em;
+      line-height: 0.92;
+      color: var(--text-white);
+      margin-bottom: 0;
+    }
+    .hero-title .line1 { animation: fadeSlideUp 0.9s ease 0.25s both; display: block; }
+    .hero-title .line2 { animation: fadeSlideUp 0.9s ease 0.4s both; display: block; color: var(--neon-orange); }
+    .hero-title .line3 { animation: fadeSlideUp 0.9s ease 0.55s both; display: block; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      color: var(--text-muted);
+      max-width: 420px;
+      line-height: 1.75;
+      margin: 28px 0 40px;
+      font-weight: 300;
+      animation: fadeSlideUp 0.9s ease 0.7s both;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeSlideUp 0.9s ease 0.85s both; }
+    .hero-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 28px;
+      animation: fadeSlideUp 1s ease 1s both;
+    }
+    .hero-stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      padding: 14px 18px;
+      border-radius: 6px;
+      min-width: 200px;
+    }
+    .hero-stat-pill:hover { border-color: rgba(255,107,43,0.3); }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--neon-orange);
+      letter-spacing: 0.04em;
+    }
+    .hero-stat-lbl { font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-heading); letter-spacing: 0.08em; text-transform: uppercase; }
+    @media (max-width: 900px) { .hero-right { display: none; } }
+    /* Floating badge */
+    .hero-badge-float {
+      position: absolute;
+      bottom: 80px;
+      right: 28px;
+      z-index: 2;
+      background: rgba(255, 107, 43, 0.12);
+      border: 1px solid rgba(255,107,43,0.35);
+      padding: 10px 18px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+    @keyframes floatBadge {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeSlideUp 1s ease 1.2s both;
+    }
+    .hero-scroll span {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--neon-orange), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── VIBE STRIP ─── */
+    #vibe-strip {
+      background: var(--neon-orange);
+      overflow: hidden;
+      padding: 14px 0;
+      white-space: nowrap;
+    }
+    .vibe-track {
+      display: inline-flex;
+      gap: 0;
+      animation: ticker 18s linear infinite;
+    }
+    .vibe-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 28px;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+    .vibe-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── REVIEWS / SOCIAL PROOF ─── */
+    #proof {
+      background: var(--black-2);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #proof::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .proof-header { margin-bottom: 60px; }
+    .proof-header .section-title { font-size: clamp(3rem, 7vw, 5.5rem); }
+    .rating-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 20px 32px;
+      border-radius: 8px;
+      margin-bottom: 48px;
+    }
+    .rating-big {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      color: var(--neon-orange);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .stars { display: flex; gap: 5px; margin-bottom: 4px; }
+    .star { color: var(--neon-orange); font-size: 1.1rem; }
+    .rating-sub { font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-heading); letter-spacing: 0.08em; text-transform: uppercase; }
+    .proof-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .proof-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border: 1px solid rgba(255,107,43,0.2);
+      border-radius: 3px;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      background: rgba(255,107,43,0.05);
+    }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px 24px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .review-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-orange), transparent);
+      border-radius: 6px 6px 0 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .review-card:hover { border-color: rgba(255,107,43,0.2); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .review-card:hover::before { opacity: 1; }
+    .rev-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .rev-star { color: var(--neon-orange); font-size: 0.85rem; }
+    .rev-text {
+      font-size: 0.88rem;
+      color: rgba(200,200,230,0.7);
+      line-height: 1.75;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    .rev-author { font-family: var(--font-heading); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--neon-orange); }
+    .rev-platform { font-size: 0.65rem; color: var(--text-dim); margin-top: 2px; }
+
+    /* ─── EXPERIENCE / USP ─── */
+    #experience {
+      background: var(--dark);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #experience::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .exp-right .section-title { font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: 16px; }
+    .exp-right p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 36px; }
+    .usp-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .usp-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      transition: var(--transition);
+    }
+    .usp-item:hover { border-color: rgba(255,107,43,0.25); background: rgba(255,107,43,0.04); }
+    .usp-icon {
+      font-size: 1.4rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,107,43,0.08);
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+    .usp-text { font-size: 0.85rem; font-weight: 500; color: var(--text-white); }
+    .usp-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    /* Left image collage */
+    .exp-img-collage {
+      position: relative;
+      height: 520px;
+    }
+    .collage-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%;
+      height: 80%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .collage-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .collage-main:hover img { transform: scale(1.05); }
+    .collage-sm-1 {
+      position: absolute;
+      bottom: 0; left: 10%;
+      width: 48%;
+      height: 40%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid var(--dark);
+    }
+    .collage-sm-1 img { width: 100%; height: 100%; object-fit: cover; }
+    .collage-sm-2 {
+      position: absolute;
+      top: 15%;
+      right: 0;
+      width: 32%;
+      height: 55%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid var(--dark);
+    }
+    .collage-sm-2 img { width: 100%; height: 100%; object-fit: cover; }
+    .collage-tag {
+      position: absolute;
+      bottom: 32px;
+      right: 12px;
+      background: var(--neon-orange);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(255,107,43,0.4);
+      animation: floatBadge 3s ease-in-out infinite 0.5s;
+    }
+    @media (max-width: 900px) {
+      .exp-grid { grid-template-columns: 1fr; gap: 48px; }
+      .exp-img-collage { height: 300px; }
+    }
+
+    /* ─── MENU ─── */
+    #menu { background: var(--black); padding: 100px 0; }
+    .menu-header { text-align: center; margin-bottom: 60px; }
+    .menu-header .section-title { font-size: clamp(3rem, 7vw, 6rem); }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .menu-tab {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: transparent;
+      transition: var(--transition);
+    }
+    .menu-tab.active, .menu-tab:hover {
+      background: var(--neon-orange);
+      border-color: var(--neon-orange);
+      color: #fff;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+    .menu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .menu-card:hover { transform: translateY(-5px); border-color: rgba(255,107,43,0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .menu-img {
+      height: 190px;
+      overflow: hidden;
+      position: relative;
+    }
+    .menu-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .menu-card:hover .menu-img img { transform: scale(1.08); }
+    .menu-badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: var(--neon-orange);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .menu-body { padding: 18px 18px 20px; }
+    .menu-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-white);
+    }
+    .menu-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+    .menu-footer { display: flex; align-items: center; justify-content: space-between; }
+    .menu-price { font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; color: var(--neon-orange); }
+    .menu-tag-chip {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .menu-cta { text-align: center; margin-top: 48px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── GALLERY ─── */
+    #gallery { background: var(--dark-2); padding: 100px 0; }
+    .gallery-header { margin-bottom: 48px; }
+    .gallery-header .section-title { font-size: clamp(3rem, 7vw, 5.5rem); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+    .g-item {
+      overflow: hidden;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer;
+    }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.4s; display: block; }
+    .g-item:hover img { transform: scale(1.08); filter: brightness(1.1) saturate(1.2); }
+    .g-item::after {
+      content: '📸';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,107,43,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .g-item:hover::after { opacity: 1; }
+    .g-tall { grid-row: span 2; }
+    .g-wide { grid-column: span 2; }
+    .g-item:nth-child(1) { height: 200px; }
+    .g-item:nth-child(2) { height: 420px; }
+    .g-item:nth-child(3) { height: 200px; }
+    .g-item:nth-child(4) { height: 200px; }
+    .g-item:nth-child(5) { height: 200px; grid-column: span 2; }
+    .g-item:nth-child(6) { height: 200px; }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .g-tall, .g-wide { grid-row: span 1; grid-column: span 1; }
+      .g-item { height: 160px !important; }
+    }
+
+    /* ─── MID CTA ─── */
+    #mid-cta {
+      background: var(--black-2);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,107,43,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .mid-cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .mid-cta-big {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .mid-cta-big .highlight { color: var(--neon-orange); display: block; }
+    .mid-cta-sub { font-size: 1rem; color: var(--text-muted); margin-bottom: 40px; }
+    .mid-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── RESERVATION ─── */
+    #reservation { background: var(--dark); padding: 100px 0; }
+    .res-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .res-left .section-title { font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: 20px; }
+    .res-left p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; }
+    /* Online order links */
+    .order-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .order-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      transition: var(--transition);
+    }
+    .order-link:hover { border-color: rgba(255,107,43,0.3); transform: translateX(4px); }
+    .order-link-icon { font-size: 1.5rem; }
+    .order-link-name { font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .order-link-sub { font-size: 0.7rem; color: var(--text-muted); }
+    .order-link-arrow { margin-left: auto; color: var(--text-dim); font-size: 1rem; transition: transform 0.3s; }
+    .order-link:hover .order-link-arrow { transform: translateX(4px); color: var(--neon-orange); }
+    /* Form */
+    .res-form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 30px;
+    }
+    .res-form-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      color: var(--text-white);
+    }
+    .res-form-title span { color: var(--neon-orange); }
+    .f-group { margin-bottom: 16px; }
+    .f-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      margin-bottom: 8px;
+    }
+    .f-group input,
+    .f-group select,
+    .f-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-white);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .f-group input::placeholder { color: var(--text-dim); }
+    .f-group input:focus,
+    .f-group select:focus {
+      border-color: var(--neon-orange);
+      box-shadow: 0 0 0 3px rgba(255,107,43,0.1);
+    }
+    .f-group select { appearance: none; cursor: pointer; }
+    .f-group select option { background: var(--dark); color: var(--text-white); }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .f-submit { width: 100%; padding: 14px; font-size: 0.82rem; margin-top: 8px; }
+    .f-error { font-size: 0.7rem; color: #FF6B6B; margin-top: 4px; display: none; }
+    .f-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,107,43,0.08);
+      border: 1px solid rgba(255,107,43,0.25);
+      border-radius: 6px;
+      color: var(--neon-orange);
+      font-size: 0.88rem;
+      margin-top: 14px;
+      font-family: var(--font-heading);
+    }
+    @media (max-width: 900px) { .res-inner { grid-template-columns: 1fr; gap: 40px; } }
+    @media (max-width: 500px) { .f-row { grid-template-columns: 1fr; } .res-form { padding: 22px 16px; } }
+
+    /* ─── LOCATION ─── */
+    #location { background: var(--black-2); padding: 100px 0; }
+    .loc-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .loc-left .section-title { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 28px; }
+    .loc-details { display: flex; flex-direction: column; gap: 18px; }
+    .loc-detail {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      transition: var(--transition);
+    }
+    .loc-detail:hover { border-color: rgba(255,107,43,0.25); }
+    .loc-icon { font-size: 1.3rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(255,107,43,0.08); border-radius: 4px; flex-shrink: 0; }
+    .loc-lbl { font-family: var(--font-heading); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--neon-orange); margin-bottom: 3px; }
+    .loc-val { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+    .loc-val a { color: var(--neon-cyan); }
+    .loc-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .map-container {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 420px;
+      border: 1px solid var(--border);
+    }
+    .map-container iframe { width: 100%; height: 100%; border: none; }
+    @media (max-width: 900px) { .loc-inner { grid-template-columns: 1fr; } .map-container { height: 300px; } }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      background: #050508;
+      border-top: 1px solid var(--border);
+      padding: 60px 0 0;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 2.2rem; letter-spacing: 0.04em; color: var(--text-white); }
+    .footer-logo span { color: var(--neon-orange); }
+    .footer-tagline { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 4px; margin-bottom: 18px; }
+    .footer-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.7; max-width: 270px; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .social-icon:hover { border-color: var(--neon-orange); color: var(--neon-orange); background: rgba(255,107,43,0.08); }
+    .footer-col-title { font-family: var(--font-heading); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--neon-orange); margin-bottom: 18px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-muted); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text-white); }
+    .footer-hours { display: flex; flex-direction: column; gap: 8px; }
+    .footer-hour { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .footer-hour span:last-child { color: var(--neon-orange); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; font-size: 0.7rem; color: var(--text-dim); }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; gap: 6px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<!-- ─── CURSOR ─── -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ─── STICKY RESERVE ─── -->
+<div id="sticky-reserve">
+  <a href="#reservation">📅 Reserve Table</a>
+</div>
+
+<!-- ─── WHATSAPP ─── -->
+<a id="wa-btn" href="https://wa.me/919279688281?text=Hi%20Cloud-245%2C%20I%27d%20like%20to%20book%20a%20table!" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">CLOUD<span>-245</span></div>
+    <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#proof">Reviews</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#reservation" class="nav-reserve">Reserve Table</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-grid"></div>
+
+  <div class="container" style="position:relative;z-index:2;width:100%;">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">Gamharia · Jamshedpur · Est. Cloud-245</div>
+      </div>
+      <h1 class="hero-title">
+        <span class="line1">JAMSHEDPUR'S</span>
+        <span class="line2">FAVOURITE</span>
+        <span class="line3">ROOFTOP.</span>
+      </h1>
+      <p class="hero-sub">
+        Good Food &bull; Great Vibes &bull; Perfect Evenings.<br/>
+        Modern cuisine with a twist of classic flavors — right here in Gamharia.
+      </p>
+      <div class="hero-ctas">
+        <a href="#reservation" class="btn btn-orange">📅 Reserve a Table</a>
+        <a href="tel:+919279688281" class="btn btn-ghost">📞 092796 88281</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-pill">
+      <div class="hero-stat-num">4.5★</div>
+      <div><div class="hero-stat-lbl">Google Rating</div></div>
+    </div>
+    <div class="hero-stat-pill">
+      <div class="hero-stat-num">₹200</div>
+      <div><div class="hero-stat-lbl">Starts From</div></div>
+    </div>
+    <div class="hero-stat-pill">
+      <div class="hero-stat-num">10:30</div>
+      <div><div class="hero-stat-lbl">Open Till PM</div></div>
+    </div>
+  </div>
+
+  <div class="hero-badge-float">🔥 Fireplace &amp; Rooftop Open</div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ─── VIBE TICKER ─── -->
+<div id="vibe-strip">
+  <div class="vibe-track">
+    <span class="vibe-item"><span class="vibe-dot"></span>ROOFTOP DINING</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>GREAT VIBES</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>BIRTHDAY PARTIES</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>DATE NIGHTS</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>FRIENDS HANGOUT</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>FIREPLACE SEATING</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>GAMHARIA JAMSHEDPUR</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>MODERN CUISINE</span>
+    <!-- duplicate for infinite loop -->
+    <span class="vibe-item"><span class="vibe-dot"></span>ROOFTOP DINING</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>GREAT VIBES</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>BIRTHDAY PARTIES</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>DATE NIGHTS</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>FRIENDS HANGOUT</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>FIREPLACE SEATING</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>GAMHARIA JAMSHEDPUR</span>
+    <span class="vibe-item"><span class="vibe-dot"></span>MODERN CUISINE</span>
+  </div>
+</div>
+
+<!-- ─── SOCIAL PROOF ─── -->
+<section id="proof">
+  <div class="container">
+    <div class="proof-header reveal">
+      <div class="tag">What People Say</div>
+      <h2 class="section-title" style="font-size:clamp(3rem,7vw,5.5rem);">LOVED BY<br/>JAMSHEDPUR.</h2>
+    </div>
+
+    <div class="rating-hero reveal d1">
+      <div class="rating-big">4.5</div>
+      <div>
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:0.5">★</span></div>
+        <div class="rating-sub">800+ Google Reviews</div>
+      </div>
+    </div>
+
+    <div class="proof-badges reveal d2">
+      <div class="proof-badge">🌆 Rooftop Dining</div>
+      <div class="proof-badge">💸 Budget Friendly</div>
+      <div class="proof-badge">🎉 Party Friendly</div>
+      <div class="proof-badge">👫 Date Spot</div>
+      <div class="proof-badge">👨‍👩‍👧 Family Welcome</div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal d1">
+        <div class="rev-stars"><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span></div>
+        <div class="rev-text">"Best place to hangout with friends in Jamshedpur. The rooftop vibe in the evening is absolutely unmatched. Food is fresh and the prices are super reasonable!"</div>
+        <div class="rev-author">Arjun Mishra</div>
+        <div class="rev-platform">Google Review · Jamshedpur</div>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="rev-stars"><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span></div>
+        <div class="rev-text">"Amazing ambience and rooftop experience. Came for my girlfriend's birthday and the staff made it really special. The fireplace corner is perfect for couples!"</div>
+        <div class="rev-author">Riya Sen</div>
+        <div class="rev-platform">Google Review · Gamharia</div>
+      </div>
+      <div class="review-card reveal d3">
+        <div class="rev-stars"><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span><span class="rev-star">★</span></div>
+        <div class="rev-text">"Good food, great vibe, and very Instagrammable. We had a group of 12 for a birthday bash and Cloud-245 handled everything perfectly. Will 100% come back!"</div>
+        <div class="rev-author">Sahil Kumar</div>
+        <div class="rev-platform">Google Review · Jamshedpur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ─── -->
+<section id="experience">
+  <div class="container">
+    <div class="exp-grid">
+      <div class="exp-img-collage reveal-l">
+        <div class="collage-main">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format" alt="Rooftop restaurant vibe" loading="lazy" />
+        </div>
+        <div class="collage-sm-1">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80&auto=format" alt="Restaurant interior" loading="lazy" />
+        </div>
+        <div class="collage-sm-2">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80&auto=format" alt="Food plating" loading="lazy" />
+        </div>
+        <div class="collage-tag">📸 Instagram-worthy</div>
+      </div>
+
+      <div class="exp-right reveal-r">
+        <div class="tag">Why Cloud-245</div>
+        <h2 class="section-title">MORE THAN<br/>FOOD —<br/>IT'S A VIBE.</h2>
+        <p>We didn't just open a restaurant. We built a space where evenings come alive, friendships happen over plates, and every visit is a memory. Welcome to Cloud-245.</p>
+        <div class="usp-list">
+          <div class="usp-item">
+            <div class="usp-icon">🌆</div>
+            <div><div class="usp-text">Rooftop Dining</div><div class="usp-sub">Open-air seating with a stunning city view at night.</div></div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">🔥</div>
+            <div><div class="usp-text">Cozy Fireplace</div><div class="usp-sub">Perfect for romantic evenings and cool winter nights.</div></div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">🎉</div>
+            <div><div class="usp-text">Party & Group Friendly</div><div class="usp-sub">Special arrangements for birthdays & large groups.</div></div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">🧒</div>
+            <div><div class="usp-text">Kids Play Area</div><div class="usp-sub">Dedicated space so families can dine stress-free.</div></div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">📸</div>
+            <div><div class="usp-text">Instagram-Worthy Décor</div><div class="usp-sub">Every corner is designed for that perfect shot.</div></div>
+          </div>
+        </div>
+        <a href="#reservation" class="btn btn-orange">🌆 Reserve Your Spot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MENU ─── -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header reveal">
+      <div class="tag">What We Serve</div>
+      <h2 class="section-title" style="font-size:clamp(3rem,7vw,6rem);">OUR MENU<br/>HIGHLIGHTS.</h2>
+    </div>
+
+    <div class="menu-tabs reveal d1">
+      <button class="menu-tab active" onclick="filterMenu('all', this)">All</button>
+      <button class="menu-tab" onclick="filterMenu('chinese', this)">Chinese</button>
+      <button class="menu-tab" onclick="filterMenu('indian', this)">Indian</button>
+      <button class="menu-tab" onclick="filterMenu('tandoor', this)">Tandoor</button>
+      <button class="menu-tab" onclick="filterMenu('biryani', this)">Biryani</button>
+      <button class="menu-tab" onclick="filterMenu('snacks', this)">Snacks</button>
+    </div>
+
+    <div class="menu-grid" id="menu-grid">
+      <!-- Chinese -->
+      <div class="menu-card" data-cat="chinese">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500&q=80&auto=format" alt="Kung Pao Chicken" loading="lazy" /><span class="menu-badge">🔥 Hot</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Kung Pao Chicken</div>
+          <div class="menu-desc">Wok-tossed chicken with peanuts, dried chillies & Sichuan pepper in a bold tangy sauce.</div>
+          <div class="menu-footer"><div class="menu-price">₹260</div><div class="menu-tag-chip">Chinese</div></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="chinese">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1645696301019-35adcc18cbed?w=500&q=80&auto=format" alt="Chilli Paneer" loading="lazy" /></div>
+        <div class="menu-body">
+          <div class="menu-name">Chilli Paneer</div>
+          <div class="menu-desc">Crispy cottage cheese tossed with peppers, onions & our signature Indo-Chinese sauce.</div>
+          <div class="menu-footer"><div class="menu-price">₹230</div><div class="menu-tag-chip">Chinese · Veg</div></div>
+        </div>
+      </div>
+      <!-- Indian -->
+      <div class="menu-card" data-cat="indian">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&q=80&auto=format" alt="Butter Chicken" loading="lazy" /><span class="menu-badge">⭐ Must Try</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Butter Chicken</div>
+          <div class="menu-desc">Tender chicken in a creamy tomato-based makhani gravy. Pairs perfect with butter naan.</div>
+          <div class="menu-footer"><div class="menu-price">₹280</div><div class="menu-tag-chip">Indian</div></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="indian">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=500&q=80&auto=format" alt="Paneer Tikka Masala" loading="lazy" /></div>
+        <div class="menu-body">
+          <div class="menu-name">Paneer Tikka Masala</div>
+          <div class="menu-desc">Grilled paneer cubes in a rich, smoky masala gravy with a rooftop-style presentation.</div>
+          <div class="menu-footer"><div class="menu-price">₹250</div><div class="menu-tag-chip">Indian · Veg</div></div>
+        </div>
+      </div>
+      <!-- Tandoor -->
+      <div class="menu-card" data-cat="tandoor">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500&q=80&auto=format" alt="Seekh Kebab" loading="lazy" /><span class="menu-badge">🔥 Bestseller</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Seekh Kebabs</div>
+          <div class="menu-desc">Minced mutton kebabs with aromatic spices, char-grilled in the clay tandoor. Served sizzling.</div>
+          <div class="menu-footer"><div class="menu-price">₹320</div><div class="menu-tag-chip">Tandoor</div></div>
+        </div>
+      </div>
+      <!-- Biryani -->
+      <div class="menu-card" data-cat="biryani">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&q=80&auto=format" alt="Chicken Biryani" loading="lazy" /><span class="menu-badge">🍚 Fav</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Chicken Dum Biryani</div>
+          <div class="menu-desc">Fragrant basmati layered with spiced chicken, saffron & fried onions — sealed & slow-cooked.</div>
+          <div class="menu-footer"><div class="menu-price">₹280</div><div class="menu-tag-chip">Biryani</div></div>
+        </div>
+      </div>
+      <!-- Snacks -->
+      <div class="menu-card" data-cat="snacks">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=500&q=80&auto=format" alt="Loaded Fries" loading="lazy" /></div>
+        <div class="menu-body">
+          <div class="menu-name">Loaded Cheese Fries</div>
+          <div class="menu-desc">Crispy fries under a blanket of melted cheese, jalapeños, and cloud-style seasoning.</div>
+          <div class="menu-footer"><div class="menu-price">₹180</div><div class="menu-tag-chip">Snacks</div></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="snacks">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=80&auto=format" alt="Momos" loading="lazy" /></div>
+        <div class="menu-body">
+          <div class="menu-name">Steamed Veg Momos</div>
+          <div class="menu-desc">Fluffy steamed dumplings stuffed with fresh veggies. Served with fiery dipping sauce.</div>
+          <div class="menu-footer"><div class="menu-price">₹140</div><div class="menu-tag-chip">Snacks · Veg</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-cta reveal">
+      <a href="tel:+919279688281" class="btn btn-ghost">📞 Ask for Full Menu</a>
+      <a href="https://www.swiggy.com" target="_blank" class="btn btn-orange">🛵 Order Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div class="tag">The Vibe</div>
+      <h2 class="section-title" style="font-size:clamp(3rem,7vw,5.5rem);">EVERY CORNER<br/>TELLS A STORY.</h2>
+    </div>
+    <div class="gallery-grid reveal d2">
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80&auto=format" alt="Food dish" loading="lazy" />
+      </div>
+      <div class="g-item g-tall">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80&auto=format" alt="Restaurant ambience" loading="lazy" />
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=500&q=80&auto=format" alt="Night lights" loading="lazy" />
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80&auto=format" alt="Dining view" loading="lazy" />
+      </div>
+      <div class="g-item g-wide">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&auto=format" alt="Rooftop setup" loading="lazy" />
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=500&q=80&auto=format" alt="Drinks" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MID CTA ─── -->
+<section id="mid-cta">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <div class="mid-cta-inner reveal">
+      <div class="mid-cta-big">
+        PLANNING A<br/><span class="highlight">HANGOUT</span><br/>OR PARTY?
+      </div>
+      <p class="mid-cta-sub">Good food. Great vibes. Even better memories. Cloud-245 is ready for you.</p>
+      <div class="mid-cta-btns">
+        <a href="#reservation" class="btn btn-orange" style="font-size:0.9rem;padding:15px 32px;">📅 Book Your Table</a>
+        <a href="tel:+919279688281" class="btn btn-ghost" style="font-size:0.9rem;padding:15px 32px;">🎉 Plan a Party</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESERVATION ─── -->
+<section id="reservation">
+  <div class="container">
+    <div class="res-inner">
+      <div class="res-left reveal-l">
+        <div class="tag">Book Your Spot</div>
+        <h2 class="section-title">GRAB YOUR<br/>TABLE.</h2>
+        <p>Reserve in advance, walk in stress-free. Whether it's a quick dinner or a big birthday bash — we've got the perfect spot for you at Cloud-245.</p>
+
+        <div class="order-links">
+          <a href="https://www.swiggy.com" target="_blank" class="order-link">
+            <div class="order-link-icon">🛵</div>
+            <div><div class="order-link-name">Order on Swiggy</div><div class="order-link-sub">Delivered to your door</div></div>
+            <div class="order-link-arrow">→</div>
+          </a>
+          <a href="https://www.zomato.com" target="_blank" class="order-link">
+            <div class="order-link-icon">🍽️</div>
+            <div><div class="order-link-name">Order on Zomato</div><div class="order-link-sub">Fast delivery, great deals</div></div>
+            <div class="order-link-arrow">→</div>
+          </a>
+        </div>
+
+        <a href="tel:+919279688281" class="btn btn-orange">📞 Call – 092796 88281</a>
+      </div>
+
+      <div class="res-form reveal-r">
+        <div class="res-form-title">Reserve a Table at <span>Cloud-245</span></div>
+        <form id="bookingForm" novalidate>
+          <div class="f-group">
+            <label for="bname">Your Name *</label>
+            <input type="text" id="bname" placeholder="Full name" required />
+            <div class="f-error" id="bname-err">Please enter your name.</div>
+          </div>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="bphone">Phone *</label>
+              <input type="tel" id="bphone" placeholder="10-digit number" required />
+              <div class="f-error" id="bphone-err">Enter valid phone.</div>
+            </div>
+            <div class="f-group">
+              <label for="bguests">Guests *</label>
+              <select id="bguests" required>
+                <option value="">Select</option>
+                <option>1–2</option>
+                <option>3–5</option>
+                <option>6–10</option>
+                <option>10+</option>
+              </select>
+              <div class="f-error" id="bguests-err">Select guest count.</div>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="bdate">Date</label>
+              <input type="date" id="bdate" />
+            </div>
+            <div class="f-group">
+              <label for="btime">Time Slot</label>
+              <select id="btime">
+                <option value="">Select</option>
+                <option>Lunch (12–4 PM)</option>
+                <option>Snacks (4–7 PM)</option>
+                <option>Dinner (7–10:30 PM)</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="boccasion">Occasion (Optional)</label>
+            <input type="text" id="boccasion" placeholder="Birthday, Anniversary, Get-together…" />
+          </div>
+          <button type="submit" class="btn btn-orange f-submit">🎉 Confirm Reservation</button>
+        </form>
+        <div class="f-success" id="f-success">
+          🎊 You're confirmed! We'll call you soon to lock it in. See you at Cloud-245!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section id="location">
+  <div class="container">
+    <div class="loc-inner">
+      <div class="loc-left reveal-l">
+        <div class="tag">Find Us</div>
+        <h2 class="section-title">WE'RE IN<br/>GAMHARIA.</h2>
+        <div class="loc-details">
+          <div class="loc-detail">
+            <div class="loc-icon">📍</div>
+            <div><div class="loc-lbl">Address</div><div class="loc-val">Shridungri, Gamharia,<br/>Jamshedpur, Jharkhand</div></div>
+          </div>
+          <div class="loc-detail">
+            <div class="loc-icon">📞</div>
+            <div><div class="loc-lbl">Phone</div><div class="loc-val"><a href="tel:+919279688281">092796 88281</a></div></div>
+          </div>
+          <div class="loc-detail">
+            <div class="loc-icon">🕐</div>
+            <div><div class="loc-lbl">Hours</div><div class="loc-val">Daily: 11:00 AM – 10:30 PM</div></div>
+          </div>
+          <div class="loc-detail">
+            <div class="loc-icon">🚗</div>
+            <div><div class="loc-lbl">Parking</div><div class="loc-val">Free parking available on premises</div></div>
+          </div>
+        </div>
+        <div class="loc-btns">
+          <a href="tel:+919279688281" class="btn btn-orange">📞 Call Now</a>
+          <a href="https://maps.google.com/?q=Shridungri+Gamharia+Jamshedpur+Jharkhand" target="_blank" class="btn btn-ghost">📍 Open Maps</a>
+        </div>
+      </div>
+      <div class="map-container reveal-r">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5!2d86.22!3d22.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sShridungri%2C+Gamharia%2C+Jamshedpur!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Cloud-245 Location"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">CLOUD<span>-245</span></div>
+        <div class="footer-tagline">Modern Cuisine with a Twist of Classic Flavors</div>
+        <div class="footer-desc">Jamshedpur's favorite rooftop hangout spot — where every evening is a vibe. Good food, great company, unforgettable nights.</div>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+          <a href="#" class="social-icon" aria-label="Facebook">👍</a>
+          <a href="https://wa.me/919279688281" class="social-icon" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <div class="footer-links">
+          <a href="#proof">Reviews</a>
+          <a href="#experience">Experience</a>
+          <a href="#menu">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reservation">Reserve Table</a>
+          <a href="#location">Location</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Hours</div>
+        <div class="footer-hours">
+          <div class="footer-hour"><span>Mon–Fri</span><span>11 AM – 10:30 PM</span></div>
+          <div class="footer-hour"><span>Saturday</span><span>11 AM – 10:30 PM</span></div>
+          <div class="footer-hour"><span>Sunday</span><span>11 AM – 10:30 PM</span></div>
+        </div>
+        <div style="margin-top:24px;">
+          <div class="footer-col-title">Contact</div>
+          <a href="tel:+919279688281" style="font-size:0.85rem;color:var(--neon-orange);font-family:var(--font-heading);font-weight:700;">092796 88281</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Cloud-245. Gamharia, Jamshedpur, Jharkhand.</span>
+      <span>Shridungri · <a href="tel:+919279688281" style="color:rgba(255,107,43,0.5);">092796 88281</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── JAVASCRIPT ─── -->
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursor-ring');
+  let cx = 0, cy = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    cx = e.clientX; cy = e.clientY;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+  });
+  function animateCursorRing() {
+    rx += (cx - rx) * 0.12;
+    ry += (cy - ry) * 0.12;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top = ry + 'px';
+    requestAnimationFrame(animateCursorRing);
+  }
+  animateCursorRing();
+  document.querySelectorAll('a, button, .menu-card, .review-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; cursorRing.style.transform = 'translate(-50%,-50%) scale(1.5)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; cursorRing.style.transform = 'translate(-50%,-50%) scale(1)'; });
+  });
+
+  // Hero parallax
+  window.addEventListener('load', () => {
+    document.getElementById('hero').classList.add('loaded');
+  });
+
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 60));
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+
+  // Menu filter
+  function filterMenu(cat, btn) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.menu-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+        card.style.animation = 'fadeUp 0.4s ease both';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  // inject fadeUp keyframes for menu filter animation
+  const styleTag = document.createElement('style');
+  styleTag.textContent = '@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }';
+  document.head.appendChild(styleTag);
+
+  // Form validation
+  const form = document.getElementById('bookingForm');
+  const successEl = document.getElementById('f-success');
+  function showErr(id, show) { document.getElementById(id).style.display = show ? 'block' : 'none'; }
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('bname').value.trim();
+    const phone = document.getElementById('bphone').value.trim();
+    const guests = document.getElementById('bguests').value;
+    showErr('bname-err', !name);
+    showErr('bphone-err', !/^[6-9]\d{9}$/.test(phone));
+    showErr('bguests-err', !guests);
+    if (name && /^[6-9]\d{9}$/.test(phone) && guests) {
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    }
+  });
+
+  // Date min
+  const bd = document.getElementById('bdate');
+  if (bd) bd.min = new Date().toISOString().split('T')[0];
+
+  // Stagger menu cards
+  document.querySelectorAll('.menu-card').forEach((c, i) => { c.style.transitionDelay = i * 0.08 + 's'; });
+</script>
+</body>
+</html>
